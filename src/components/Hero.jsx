@@ -71,7 +71,9 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://wa.me/918655700243?text=Hello%20Brown%20Spa,%20I%20would%20like%20to%20book%20an%20appointment."
+                href={`https://wa.me/918655700243?text=${encodeURIComponent(
+                  "Hello Auric Spa, I would like to book an appointment."
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-full font-semibold transition-all duration-300"

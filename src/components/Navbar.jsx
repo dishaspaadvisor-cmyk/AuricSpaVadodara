@@ -66,7 +66,9 @@ export default function Navbar() {
             </a>
 
             <a
-              href={`https://wa.me/${SITE.phoneWhatsApp.replace("+", "")}`}
+              href={`https://wa.me/${SITE.phoneWhatsApp.replace("+", "")}?text=${encodeURIComponent(
+                "Hi, I got your contact from Auric Spa Vadodara."
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-11 items-center gap-2 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white"
