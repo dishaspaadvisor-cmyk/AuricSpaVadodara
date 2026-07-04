@@ -58,7 +58,7 @@ const GalleryCard = ({ service, phone, whatsapp }) => {
     
 
       {/* Service Name Label */}
-      <div className="absolute bottom-6 left-6 right-6 transform transition-transform duration-500 group-hover:-translate-y-2">
+      <div className="absolute left-6 right-6 bottom-24 transform transition-transform duration-500 group-hover:-translate-y-2">
         <h3 className="text-white text-2xl font-serif font-medium tracking-wide">
           {service.name}
         </h3>
@@ -66,8 +66,8 @@ const GalleryCard = ({ service, phone, whatsapp }) => {
       </div>
 
       {/* Hover Action Buttons */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500">
-        <div className="flex gap-4 transform translate-y-0 md:translate-y-10 md:group-hover:translate-y-0 transition-all duration-500 ease-out">
+      <div className="absolute left-6 right-6 bottom-6 flex justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500">
+        <div className="flex flex-wrap justify-center gap-4">
           
           {/* Call Button */}
           <a

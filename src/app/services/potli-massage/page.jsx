@@ -11,27 +11,25 @@ export default function PotliMassagePage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] md:min-h-[85vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden">
               <Image
                 src="/other/he1.png"
                 alt="Couples Massage"
                 fill
                 priority
                 sizes="100vw"
-                className="object-cover object-center"
+                className="object-cover object-top"
               />
       
       
               {/* Content */}
-              <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-8">
-                <div className="max-w-2xl">
-                  <span className="inline-flex items-center rounded-full bg-[#92242C] px-5 py-2 text-sm font-semibold text-white shadow-lg">
-                   Potli Massage
-                  </span>
+              <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-8 flex justify-center">
+                <div className="max-w-2xl mx-auto text-center">
+                  
       
                   <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                     Best Spa
-                    <span className="block text-[#F5D6A0]">
+                    <span className="block text-white">
                       in Vadodara
                     </span>
                   </h1>
@@ -42,7 +40,7 @@ export default function PotliMassagePage() {
                   </p>
       
                   {/* Buttons */}
-                  <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                  <div className="mt-10 flex flex-row flex-wrap justify-center items-center gap-4">
                     {/* Call Button */}
                     <a
                       href="tel:+918655700242"

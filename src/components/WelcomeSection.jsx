@@ -60,64 +60,101 @@ export default function WelcomeSection() {
               hygienic and relaxing atmosphere.
             </p>
 
-            <div className="mt-10 flex gap-4">
+            <div className="mt-10 flex flex-row flex-wrap items-center justify-start gap-4">
               <a
                 href={`https://wa.me/${SITE.phoneWhatsApp.replace("+", "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full px-8 py-4 font-semibold text-white transition hover:scale-105"
-                style={{
-                  background: SITE.brand,
-                }}
+                className="inline-flex min-w-[150px] items-center justify-center rounded-full bg-[#92242C] px-6 py-4 text-sm font-semibold text-white shadow-lg transition duration-200 hover:bg-[#7a1c24]"
               >
                 Book Appointment
               </a>
 
               <a
                 href={`tel:${SITE.phoneCall}`}
-                className="rounded-full border border-[#92242C] px-8 py-4 transition hover:bg-[#92242C] hover:text-black"
+                className="inline-flex min-w-[150px] items-center justify-center rounded-full border border-[#92242C] bg-white px-6 py-4 text-sm font-semibold text-[#92242C] shadow-sm transition duration-200 hover:bg-[#92242C] hover:text-white"
               >
                 Call Now
               </a>
             </div>
           </div>
 
-          {/* RIGHT IMAGES */}
-          <div className="grid grid-cols-2 gap-5">
-            <div className="space-y-5">
-              <div className="overflow-hidden rounded-3xl">
-                <Image
-                  src={welcomeImages[0].src}
-                  alt={welcomeImages[0].alt}
-                  width={600}
-                  height={700}
-                  className="h-[380px] w-full object-cover transition duration-500 hover:scale-110"
-                />
-              </div>
+                {/* RIGHT IMAGES */}
+<div className="relative">
+  {/* Mobile Layout */}
+  <div className="grid gap-4 sm:hidden">
+    {/* Large Image */}
+    <div className="overflow-hidden rounded-3xl shadow-xl">
+      <Image
+        src={welcomeImages[2].src}
+        alt={welcomeImages[2].alt}
+        width={700}
+        height={700}
+        className="h-[300px] w-full object-cover transition duration-500 hover:scale-105"
+      />
+    </div>
 
-              <div className="overflow-hidden rounded-3xl">
-                <Image
-                  src={welcomeImages[1].src}
-                  alt={welcomeImages[1].alt}
-                  width={600}
-                  height={400}
-                  className="h-[220px] w-full object-cover transition duration-500 hover:scale-110"
-                />
-              </div>
-            </div>
+    {/* Two Small Images */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="overflow-hidden rounded-2xl shadow-lg">
+        <Image
+          src={welcomeImages[0].src}
+          alt={welcomeImages[0].alt}
+          width={500}
+          height={500}
+          className="h-[180px] w-full object-cover transition duration-500 hover:scale-105"
+        />
+      </div>
 
-            <div className="flex items-center">
-              <div className="overflow-hidden rounded-3xl">
-                <Image
-                  src={welcomeImages[2].src}
-                  alt={welcomeImages[2].alt}
-                  width={600}
-                  height={900}
-                  className="h-[620px] w-full object-cover transition duration-500 hover:scale-110"
-                />
-              </div>
-            </div>
-          </div>
+      <div className="overflow-hidden rounded-2xl shadow-lg">
+        <Image
+          src={welcomeImages[1].src}
+          alt={welcomeImages[1].alt}
+          width={500}
+          height={500}
+          className="h-[180px] w-full object-cover transition duration-500 hover:scale-105"
+        />
+      </div>
+    </div>
+  </div>
+
+  {/* Tablet & Desktop Layout */}
+  <div className="hidden sm:grid grid-cols-2 gap-5">
+    <div className="space-y-5">
+      <div className="overflow-hidden rounded-3xl shadow-xl">
+        <Image
+          src={welcomeImages[0].src}
+          alt={welcomeImages[0].alt}
+          width={700}
+          height={800}
+          className="h-[360px] md:h-[420px] w-full object-cover transition duration-500 hover:scale-105"
+        />
+      </div>
+
+      <div className="overflow-hidden rounded-3xl shadow-xl">
+        <Image
+          src={welcomeImages[1].src}
+          alt={welcomeImages[1].alt}
+          width={700}
+          height={500}
+          className="h-[220px] md:h-[250px] w-full object-cover transition duration-500 hover:scale-105"
+        />
+      </div>
+    </div>
+
+    <div className="flex items-center">
+      <div className="overflow-hidden rounded-3xl shadow-xl w-full">
+        <Image
+          src={welcomeImages[2].src}
+          alt={welcomeImages[2].alt}
+          width={700}
+          height={1000}
+          className="h-[590px] md:h-[690px] w-full object-cover transition duration-500 hover:scale-105"
+        />
+      </div>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </section>

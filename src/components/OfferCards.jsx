@@ -61,15 +61,16 @@ export default function SpaDiscountSection() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="relative h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
-            <Image
-              src="/gallary/ga4.jpg"
-              alt="Best Spa in Vadodara Massage Therapy"
-              fill
-              className="object-cover object-center"
-            />
-          </div>
+              {/* RIGHT IMAGE */}
+<div className="relative h-[350px] sm:h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+  <Image
+    src="/gallary/ga4.jpg"
+    alt="Best Spa in Jalna Massage Therapy"
+    fill
+    className="object-cover object-center sm:object-center lg:object-center"
+    priority
+  />
+</div>
 
         </div>
 

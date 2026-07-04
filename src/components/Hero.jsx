@@ -6,14 +6,14 @@ import { CalendarCheck, Phone } from "lucide-react";
 
 const slides = [
   {
-    image: "/hero/hero1.png",
+    image: "/hero/bg2.png",
     title: "Expert Staff Available",
     subtitle: "Auric Spa Vadodara",
     description:
       "Experience luxury body massage therapy with expert therapists in a peaceful spa environment.",
   },
   {
-    image: "/hero/hero2.png",
+    image: "/hero/bg1.png",
     title: "Best Spa Experience",
     subtitle: "Relax Together",
     description:
@@ -40,20 +40,15 @@ export default function Hero() {
         alt={slides[current].title}
         fill
         priority
-        className="object-cover transition-all duration-700"
+        className="object-cover object-top transition-all duration-700"
       />
-
-      {/* Optional Dark Overlay */}
-      <div className="absolute inset-0 bg-black/10 z-10"></div>
 
       {/* Content */}
       <div className="absolute inset-0 z-20 flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex flex-col items-center justify-center text-center">
             {/* Subtitle */}
-            <p className="text-lg md:text-2xl font-medium text-black mb-4">
-              {slides[current].subtitle}
-            </p>
+           
 
             {/* Title */}
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-[#92242C] leading-tight mb-6">
@@ -61,7 +56,7 @@ export default function Hero() {
             </h1>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-5">
+            <div className="flex flex-row flex-wrap justify-center items-center gap-5">
               <a
                 href="tel:+918655700242"
                 className="inline-flex items-center justify-center gap-2 bg-[#92242C] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
