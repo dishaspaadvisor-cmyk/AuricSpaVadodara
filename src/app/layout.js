@@ -62,6 +62,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+       <meta name="google-site-verification" content="d6SlKqPrROC7wWnhWKYGJANOeYsRWSvWL4LkbGVedEg" />
+      </head>
       <body className="min-h-full flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>

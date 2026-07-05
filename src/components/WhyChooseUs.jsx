@@ -60,7 +60,7 @@ const features = [
     title: "100% Hygiene",
     text: "Sanitized after every session",
     icon: CheckCircle,
-    iconClassName: "text-green-600",
+    iconClassName: "text-[#92242C]",
   },
   {
     title: "Open Daily",
