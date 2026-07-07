@@ -11,17 +11,59 @@ export default function ContactSection() {
     email: "",
     message: "",
   });
-
+  
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleChange = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleWhatsApp = () => {
-    const message = `Auric Spa Vadodara Enquiry\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
-    window.open(
-      `https://wa.me/${SITE.phoneWhatsApp.replace("+", "")}?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+  const handleSubmit = async () => {
+    if (!form.name || !form.phone || !form.address || !form.notes) {
+      setStatus("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const response = await fetch(
+        "https://apibackend.mastercall.in/api/v1/web-leads/submit/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            form_key: "frm_auric_spa_vadodara_436268",
+            name: form.name,
+            phone: form.phone,
+            address: form.address,
+            notes: form.notes,
+            submitted_from_url: window.location.href,
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Submission failed");
+      }
+
+      setStatus(
+        "Your enquiry has been sent successfully. We will contact you soon.",
+      );
+      setForm({ name: "", phone: "", email: "", address: "", notes: "" });
+    } catch (error) {
+      console.error(error);
+      setStatus(
+        "Unable to submit the enquiry. Please try again or contact us on WhatsApp.",
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -65,18 +107,89 @@ export default function ContactSection() {
             Book Appointment
           </h3>
           <div className="space-y-5">
-            <input name="name" value={form.name} onChange={handleChange} type="text" placeholder="Full Name" className={inputClass} />
-            <input name="phone" value={form.phone} onChange={handleChange} type="tel" placeholder="Phone Number" className={inputClass} />
-            <input name="email" value={form.email} onChange={handleChange} type="email" placeholder="Email Address" className={inputClass} />
-            <textarea name="message" value={form.message} onChange={handleChange} rows={6} placeholder="Write your message" className={inputClass} />
+                 <input
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              type="text"
+              placeholder="Full Name"
+              className={inputClass}
+            />
+  <input
+  name="phone"
+  value={form.phone}
+  onChange={(e) => {
+    const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+
+    setForm((prev) => ({
+      ...prev,
+      phone: value,
+    }));
+  }}
+  type="tel"
+  placeholder="Phone Number"
+  maxLength={10}
+  inputMode="numeric"
+  className={inputClass}
+/>     
+        <input
+  name="address"
+  value={form.address}
+  onChange={(e) => {
+    const value = e.target.value;
+
+    // Block URLs
+    const urlRegex =
+      /(https?:\/\/|www\.|[a-zA-Z0-9-]+\.(com|in|org|net|co|io|gov|edu|xyz|biz|info|me))/i;
+
+    if (urlRegex.test(value)) {
+      return; // Don't allow URLs
+    }
+
+    setForm((prev) => ({
+      ...prev,
+      address: value,
+    }));
+  }}
+  type="text"
+  placeholder="Your Address"
+  maxLength={100}
+  autoComplete="off"
+  className={inputClass}
+/>
+           <textarea
+  name="notes"
+  value={form.notes}
+  onChange={(e) => {
+    const value = e.target.value;
+
+    // Block URLs
+    const urlRegex =
+      /(https?:\/\/|www\.|[a-zA-Z0-9-]+\.(com|in|org|net|co|io|gov|edu|xyz|biz|info|me))/i;
+
+    if (urlRegex.test(value)) {
+      return; // Don't allow URLs
+    }
+
+    setForm((prev) => ({
+      ...prev,
+      notes: value,
+    }));
+  }}
+  rows={6}
+  placeholder="Write your message"
+  className={inputClass}
+/>
+            {status ? <p className="text-sm text-black/80">{status}</p> : null}
             <button
               type="button"
-              onClick={handleWhatsApp}
-              className="flex w-full items-center justify-center gap-3 bg-[#92242C] px-6 py-4 text-lg font-semibold text-white transition hover:bg-[#92242C]"
+              onClick={handleSubmit}
+              disabled={loading}
+              className="flex w-full items-center justify-center gap-3 rounded-full bg-[#4D3F33] px-6 py-4 text-lg font-semibold text-white transition duration-300 hover:bg-[#3a4526] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              <MessageCircle size={22} />
-              Enquiry on WhatsApp
+              {loading ? "Sending..." : "Send Enquiry"}
             </button>
+           
           </div>
         </div>
       </div>

@@ -54,7 +54,7 @@ export const metadata = {
 
   icons: {
     icon: [
-      { url: "/auriclogo.webp", type: "image/webp" },
+      { url: "/auricicon.png", type: "image/png" },
     ],
   },
 };

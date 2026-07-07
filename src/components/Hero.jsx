@@ -14,7 +14,7 @@ const slides = [
   },
   {
     image: "/hero/bg1.png",
-    title: "Best Spa Experience",
+    title: "Best Spa Near You",
     subtitle: "Relax Together",
     description:
       "Enjoy a rejuvenating spa experience with your loved one in our premium couples spa rooms.",
@@ -47,8 +47,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-20 flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex flex-col items-center justify-center text-center">
-            {/* Subtitle */}
-           
+       
 
             {/* Title */}
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-[#92242C] leading-tight mb-6">
