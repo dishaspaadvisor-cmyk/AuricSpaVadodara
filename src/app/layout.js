@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full antialiased">
       <head>
-       <meta name="google-site-verification" content="d6SlKqPrROC7wWnhWKYGJANOeYsRWSvWL4LkbGVedEg" />
+      <meta name="google-site-verification" content="oZPiC_Y-Dt9VpBru83v5KXMppyuWD3hFDZQuZ_2ejO4" />
       </head>
       <body className="min-h-full flex flex-col">
         <Navbar />
